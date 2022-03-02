@@ -15,6 +15,10 @@
 </head>
 
 <body>
+    <form id="logout-form" action="{{ route('logout') }}" method="post" style="display:none;">
+        {{ csrf_field() }}
+    </form>
+
     <div id="app">
         <b-navbar toggleable="sm" type="dark" variant="primary">
             <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
@@ -31,7 +35,7 @@
                     @else
                         <!-- Navbar dropdowns -->
                         <b-nav-item-dropdown text="User" right>
-                            <b-dropdown-item href="#">Cerrar Sesión</b-dropdown-item>
+                            <b-dropdown-item href="#" @click="logout">Cerrar Sesión</b-dropdown-item>
                         </b-nav-item-dropdown>
                     @endguest
                 </b-navbar-nav>
